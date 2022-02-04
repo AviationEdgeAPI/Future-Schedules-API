@@ -1,7 +1,5 @@
 # Future-Schedules-API
-Aviation Edge Future Schedules API provides flight schedule data of a given date in the future by using an algorithm to create the schedule based on historical data. It has global coverage with the exception of military and private airfields certain airports with very little traffic. The API can return either the departure or the arrival schedule of an airport a time, meaning  that when implemented, your end-users can choose a flight off the list after picking a date and an airport. Details for each flight in the response include the flight number, flight time, airline, departure  and arrival locations, aircraft details, the most used terminal and gate for the flight, and more. The API is particularly useful for online travel agency and flight booking services.
-
-[Get your API key](https://aviation-edge.com/premium-api/) in a minute and start testing the data right away. The API is provided through API subscriptions. All plans grant access to the Future Schedules API and other APIs with a difference of the monthly API call limit. Choose the best plan for you and upgrade, downgrade or cancel your plan anytime without  commitments.
+Aviation Edge [Future Schedules API](https://aviation-edge.com/future-flight-schedules-and-timetables-of-airports-api/) provides flight schedule data of a given date in the future by using an algorithm to create the schedule based on historical data. It has global coverage with the exception of military and private airfields certain airports with very little traffic. The API can return either the departure or the arrival schedule of an airport a time, meaning  that when implemented, your end-users can choose a flight off the list after picking a date and an airport. Details for each flight in the response include the flight number, flight time, airline, departure  and arrival locations, aircraft details, the most used terminal and gate for the flight, and more. The API is particularly useful for online travel agency and flight booking services.
 
 ### Documentation
 You may find input parameters, output examples with explanations for each item, filter list, and more in the [documentation](https://aviation-edge.com/developers/).
@@ -78,8 +76,10 @@ For the flights that are scheduled to depart from a certain airport on a certain
 ]
 ```
 
-### Questions & Support
+### Access & Support
 [Contact us](https://aviation-edge.com/contact/) via email for any questions or support requests.
+
+[Get your API key](https://aviation-edge.com/premium-api/) in a minute and start testing the data right away. The API is provided through API subscriptions. All plans grant access to the Future Schedules API and other APIs with a difference of the monthly API call limit. Choose the best plan for you and upgrade, downgrade or cancel your plan anytime without  commitments.
 
 ### License
 The use of the API is subject to Aviation Edge [Terms and Conditions](https://aviation-edge.com/api-terms-of-service/).
