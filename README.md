@@ -12,19 +12,19 @@ You may find input parameters, output examples with explanations for each item, 
 ### Request 
 For the departure schedule of a certain airport on a certain future date.
 
-**GET** http://aviation-edge.com/v2/public/flightsFuture?key=[API_KEY]&type=departure&iataCode=BER&date=YYYY-MM-DD
+**GET** `http://aviation-edge.com/v2/public/flightsFuture?key=[API_KEY]&type=departure&iataCode=BER&date=YYYY-MM-DD`
 
 For the arrival schedule of a certain airport on a certain future date.
 
-**GET** http://aviation-edge.com/v2/public/flightsFuture?key=[API_KEY]&type=arrival&iataCode=BER&date=YYYY-MM-DD
+**GET** `http://aviation-edge.com/v2/public/flightsFuture?key=[API_KEY]&type=arrival&iataCode=BER&date=YYYY-MM-DD`
 
 For the flights that are scheduled to arrive at a certain airport on a certain date (out of a departure schedule).
 
-**GET** http://aviation-edge.com/v2/public/flightsFuture?key=[API_KEY]&type=departure&iataCode=BER&arr_iataCode=ORY&date=YYYY-MM-DD
+**GET** `http://aviation-edge.com/v2/public/flightsFuture?key=[API_KEY]&type=departure&iataCode=BER&arr_iataCode=ORY&date=YYYY-MM-DD`
 
 For the flights that are scheduled to depart from a certain airport on a certain date (out of an arrival schedule).
 
-**GET** https://aviation-edge.com/v2/public/flightsFuture?key=[API_KEY]&type=arrival&iataCode=BER&dep_iataCode=ory&date=YYYY-MM-DD
+**GET** `https://aviation-edge.com/v2/public/flightsFuture?key=[API_KEY]&type=arrival&iataCode=BER&dep_iataCode=ory&date=YYYY-MM-DD`
 
 ### Filters
 ```
