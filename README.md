@@ -1,5 +1,5 @@
-# Future-Schedules-API
-Aviation Edge [Future Schedules API](https://aviation-edge.com/future-flight-schedules-and-timetables-of-airports-api/) provides flight schedule data of a given date in the future by using an algorithm to create the schedule based on historical data. It has global coverage with the exception of military and private airfields certain airports with very little traffic. The API can return either the departure or the arrival schedule of an airport a time, meaning  that when implemented, your end-users can choose a flight off the list after picking a date and an airport. Details for each flight in the response include the flight number, flight time, airline, departure  and arrival locations, aircraft details, the most used terminal and gate for the flight, and more. The API is particularly useful for online travel agency and flight booking services.
+# Future-Airport-Schedules-API
+Aviation Edge [Future Airport Schedules API](https://aviation-edge.com/future-flight-schedules-and-timetables-of-airports-api/) provides flight schedule data of a given date in the future by using an algorithm to create the schedule based on historical data. It has global coverage with the exception of military and private airfields and airports with really little traffic. When implemented, your users can choose a flight off the list after picking a date and an airport. Details for each flight in the response include the flight number, flight time, airline, departure and arrival locations, aircraft details, the most used terminal and gate for the flight, and more. The API is particularly useful for online travel agencies and flight booking services.
 
 ### Documentation
 You may find input parameters, output examples with explanations for each item, filter list, and more in the [documentation](https://aviation-edge.com/developers/).
@@ -39,6 +39,70 @@ For the flights that are scheduled to depart from a certain airport on a certain
 &airline_iata=  option to filter airline based on airline IATA code
 &airline=icao=  option to filter airline based on airline ICAO code
 &flight_num=    option to filter a specific flight based on its flight number
+```
+
+### Useful Code Examples
+
+1.	Fetching the Data (axios library used)
+
+```
+const axios = require('axios');
+
+const API_ENDPOINT = "https://aviation-edge.com/v2/public/flightsFuture?key=api-key&type=departure&iataCode=BER&date=2023-12-17";
+
+async function fetchAirportSchedule() {
+    try {
+        const response = await axios.get(API_ENDPOINT);
+        return response.data;
+    } catch (error) {
+        console.error("Error fetching data:", error);
+        return null;
+    }
+}
+
+// Test fetching the data
+fetchAirportSchedule().then(data => {
+    if(data) {
+        console.log("Received Data:", data);
+    }
+});
+```
+
+2.	Display a certain flight’s details
+
+```
+function displayFlightDetails(flight) {
+    console.log("Flight Number:", flight.flight.iataNumber);
+    console.log("Aircraft:", flight.aircraft.modelText);
+    console.log("Departure Time:", flight.departure.scheduledTime);
+    console.log("Arrival Time:", flight.arrival.scheduledTime);
+    console.log("Departure Gate:", flight.departure.gate);
+    console.log("Arrival Gate:", flight.arrival.gate);
+    console.log("Codeshare Information:", flight.codeshared ? flight.codeshared.airline.name : "No codeshare information available.");
+}
+
+// Test display function with the first flight from fetched data
+fetchAirportSchedule().then(data => {
+    if(data && data.length > 0) {
+        displayFlightDetails(data[0]);
+    }
+});
+```
+
+3.	Filter all flights based on a criteria (example is flights that are to depart after a certain time)
+
+```
+function filterFlightsBefore(data, time) {
+    return data.filter(flight => flight.departure.scheduledTime < time);
+}
+
+// Test filter function with the fetched data
+fetchAirportSchedule().then(data => {
+    if(data) {
+        const filteredFlights = filterFlightsBefore(data, "07:00");
+        console.log("Filtered Flights:", filteredFlights);
+    }
+});
 ```
 
 ### Response
